@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CreateEvent from "../components/CreateEvent";
-const Calendar = () => {
+const CalendarPage = () => {
   const [events, setEvents] = useState([]);
   const [filterDate, setFilterDate] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -21,7 +21,7 @@ const Calendar = () => {
   //     })
   //     .catch(() => setIsAuthenticated(false));
   // }, []);
-  
+
   const handleFilter = (date) => {
     // Filter events by date
     const filteredEvents = events.filter(
@@ -136,4 +136,4 @@ const Calendar = () => {
     </div>
   );
 };
-export default Calendar;
+export default CalendarPage;
