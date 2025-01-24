@@ -13,7 +13,7 @@ const Calendar = () => {
   console.log("I was here ");
   useEffect(() => {
     axios
-      .get("hhttps://whitecarrotassignment-backend.onrender.com/events", { withCredentials: true })
+      .get("https://whitecarrotassignment-backend.onrender.com/events", { withCredentials: true })
       .then((response) => {
         setIsAuthenticated(true);
         setEvents(response.data);
