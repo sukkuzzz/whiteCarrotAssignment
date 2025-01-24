@@ -45,7 +45,7 @@ app.get("/auth/redirect", async (req, res) => {
   const { tokens } = await oauth2Client.getToken(code);
   oauth2Client.setCredentials(tokens);
   res.cookie("access_token", tokens.access_token, { httpOnly: true });
-  res.redirect("https://whitecarrotassignment-frontend.onrender.com/");
+  res.redirect("https://whitecarrotassignment-frontend.onrender.com/calendar");
 });
 
 app.get("/events", async (req, res) => {
