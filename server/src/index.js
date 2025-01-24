@@ -5,6 +5,9 @@ import { google } from "googleapis";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
+
+const redirectURl="https://whitecarrotassignment.onrender.com/auth/redirect";
+
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
@@ -16,7 +19,7 @@ app.use(cookieParser());
 const oauth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
   process.env.CLIENT_SECRET,
-  "https://whitecarrotassignment-backend.onrender.com/auth/redirect"
+  redirectURl,
 );
 
 oauth2Client.on("tokens", (tokens) => {
