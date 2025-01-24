@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import whitecarrotLogo from "./assets/whitecarrotio.png";
 import Home from "./pages/Home";
-import Sukriti from "./pages/Sukriti";
 import CalendarPage from "./pages/Calendar";
 const App = () => {
   return (
@@ -30,7 +29,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/calendar" element={<CalendarPage />} />
-          <Route path="/sukriti" element={<Sukriti />} />
         </Routes>
       </main>
     </BrowserRouter>
