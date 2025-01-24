@@ -17,7 +17,7 @@ app.use(cookieParser());
 const oauth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
   process.env.CLIENT_SECRET,
-  "https://whitecarrotassignment.onrender.com/auth/redirect"
+  `https://whitecarrotassignment.onrender.com/auth/redirect`,
 );
 
 oauth2Client.on("tokens", (tokens) => {
