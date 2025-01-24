@@ -12,15 +12,16 @@ const Calendar = () => {
   };
   console.log("I was here ");
 
-  useEffect(() => {
-    axios
-      .get("https://whitecarrotassignment.onrender.com/events", { withCredentials: true })
-      .then((response) => {
-        setIsAuthenticated(true);
-        setEvents(response.data);
-      })
-      .catch(() => setIsAuthenticated(false));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://whitecarrotassignment.onrender.com/events", { withCredentials: true })
+  //     .then((response) => {
+  //       setIsAuthenticated(true);
+  //       setEvents(response.data);
+  //     })
+  //     .catch(() => setIsAuthenticated(false));
+  // }, []);
+  
   const handleFilter = (date) => {
     // Filter events by date
     const filteredEvents = events.filter(
