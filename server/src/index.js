@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
 
-app.use(cors({ origin: "https://whitecarrotassignment-frontend.onrender.com", credentials: true }));
+app.use(cors({ origin: "https://white-carrot-assignment.vercel.app", credentials: true }));
 app.use(cookieParser());
 
 app.use(express.json());
@@ -65,7 +65,7 @@ app.get("/auth/redirect", async (req, res) => {
      sameSite: "None", 
   });
 
-  res.redirect("https://whitecarrotassignment-frontend.onrender.com/calendar");
+  res.redirect("https://white-carrot-assignment.vercel.app/calendar");
 });
 
 app.get("/events", async (req, res) => {
@@ -165,7 +165,7 @@ app.delete("/delete-event/:eventId", async (req, res) => {
 
 app.get("/logout", (req, res) => {
   res.clearCookie("access_token");
-  res.redirect(`https://whitecarrotassignment-frontend.onrender.com`);
+  res.redirect(`https://white-carrot-assignment.vercel.app`);
 });
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
