@@ -28,6 +28,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/calendar" element={<Calendar />} />
+          <Route path="/sukriti" element={<Calendar />} />
         </Routes>
       </main>
     </BrowserRouter>
