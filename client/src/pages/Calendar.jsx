@@ -8,12 +8,12 @@ const Calendar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [message, setMessage] = useState("");
   const handleLogin = () => {
-    window.location.href = "https://whitecarrotassignment-backend.onrender.com/auth";
+    window.location.href = "https://whitecarrotassignment.onrender.com/auth";
   };
   console.log("I was here ");
   useEffect(() => {
     axios
-      .get("https://whitecarrotassignment-backend.onrender.com/events", { withCredentials: true })
+      .get("https://whitecarrotassignment.onrender.com/events", { withCredentials: true })
       .then((response) => {
         setIsAuthenticated(true);
         setEvents(response.data);
@@ -45,12 +45,12 @@ const Calendar = () => {
   const handleLogout = () => {
     setIsAuthenticated(false);
     setEvents([]);
-    window.location.href = "https://whitecarrotassignment-backend.onrender.com/logout";
+    window.location.href = "https://whitecarrotassignment.onrender.com/logout";
   };
   const handleDeleteEvent = async (eventId) => {
     try {
       const response = await axios.delete(
-        `https://whitecarrotassignment-backend.onrender.com/delete-event/${eventId}`,
+        `https://whitecarrotassignment.onrender.com/delete-event/${eventId}`,
         {
           withCredentials: true,
         }
