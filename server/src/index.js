@@ -44,6 +44,7 @@ app.get("/auth/redirect", async (req, res) => {
   const code = req.query.code;
   const { tokens } = await oauth2Client.getToken(code);
   oauth2Client.setCredentials(tokens);
+  console.log(tokens);
   res.cookie("access_token", tokens.access_token, { httpOnly: true });
   res.redirect("https://whitecarrotassignment-frontend.onrender.com/");
 });
