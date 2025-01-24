@@ -13,6 +13,8 @@ const port = process.env.PORT || 8000;
 app.use(cors({ origin: "https://whitecarrotassignment-frontend.onrender.com", credentials: true }));
 app.use(cookieParser());
 
+app.use(express.json());
+
 // Google OAuth2 Client
 const oauth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
@@ -93,7 +95,7 @@ app.get("/events", async (req, res) => {
     res.status(500).send("Error fetching events");
   }
 });
-app.use(express.json());
+
 app.post("/create-event", async (req, res) => {
   const accessToken = req.cookies.access_token;
   if (!accessToken) return res.status(401).json({ error: "Unauthorized" });
