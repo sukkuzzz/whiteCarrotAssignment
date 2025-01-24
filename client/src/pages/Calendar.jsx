@@ -6,6 +6,7 @@ const Calendar = () => {
   const [events, setEvents] = useState([]);
   const [filterDate, setFilterDate] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [message, setMessage] = useState("");
   const handleLogin = () => {
     window.location.href = "http://localhost:8000/auth";
   };
@@ -46,6 +47,23 @@ const Calendar = () => {
     setEvents([]);
     window.location.href = "http://localhost:8000/logout";
   };
+  const handleDeleteEvent = async (eventId) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:8000/delete-event/${eventId}`,
+        {
+          withCredentials: true,
+        }
+      );
+      setMessage("Event deleted successfully!");
+      window.location.reload();
+      console.log(response.data);
+    } catch (error) {
+      setMessage("Failed to delete event.");
+      console.error("Error deleting event:", error);
+    }
+  };
+
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center p-8">
       <h1 className="text-3xl font-bold mb-6">Google Calendar Events</h1>
@@ -81,12 +99,13 @@ const Calendar = () => {
               <th className="p-3">Title</th>
               <th className="p-3">Date</th>
               <th className="p-3">Time</th>
+              <th className="p-3">Actions</th>
             </tr>
           </thead>
           <tbody>
             {events.length === 0 && (
               <tr>
-                <td colSpan="3" className="p-3 text-center">
+                <td colSpan="4" className="p-4 text-center">
                   No events found
                 </td>
               </tr>
@@ -98,6 +117,12 @@ const Calendar = () => {
                   {new Date(event.date).toLocaleDateString()}
                 </td>
                 <td className="p-3">{formatTime(event.time)}</td>
+                <button
+                  onClick={() => handleDeleteEvent(event.id)}
+                  className="mt-2 border bg-red-600 text-white px-4 py-2 rounded"
+                >
+                  Delete Event
+                </button>
               </tr>
             ))}
           </tbody>

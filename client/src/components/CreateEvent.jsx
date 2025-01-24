@@ -28,6 +28,7 @@ const CreateEvent = () => {
       setMessage("Event created successfully!");
       console.log(response.data);
       setEventData({ summary: "", description: "", start: "", end: "" });
+      window.location.reload();
     } catch (error) {
       setMessage("Failed to create event.");
       console.error("Error creating event:", error);
@@ -84,15 +85,14 @@ const CreateEvent = () => {
           className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           required
         />
+        <button
+          type="submit"
+          className="mt-4 event-form border bg-[#6469ff] border-gray-300 px-3 py-2 rounded-lg w-full max-w-md ml-60 "
+          style={{ maxWidth: "200px" }}
+        >
+          Create Event
+        </button>
       </form>
-      <button
-        type="submit"
-        onClick={handleSubmit}
-        className="mt-4 event-form border bg-[#6469ff] border-gray-300 px-3 py-2 rounded-lg w-full max-w-md"
-        style={{ maxWidth: "200px" }}
-      >
-        Create Event
-      </button>
     </div>
   );
 };
