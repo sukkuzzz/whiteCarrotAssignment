@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://whitecarrotassignment-frontend.onrender.com", credentials: true }));
 app.use(cookieParser());
 
 // Google OAuth2 Client
@@ -44,7 +44,7 @@ app.get("/auth/redirect", async (req, res) => {
   const { tokens } = await oauth2Client.getToken(code);
   oauth2Client.setCredentials(tokens);
   res.cookie("access_token", tokens.access_token, { httpOnly: true });
-  res.redirect("http://localhost:5173/calendar");
+  res.redirect("https://whitecarrotassignment-frontend.onrender.com/calendar");
 });
 
 app.get("/events", async (req, res) => {
@@ -144,7 +144,7 @@ app.delete("/delete-event/:eventId", async (req, res) => {
 
 app.get("/logout", (req, res) => {
   res.clearCookie("access_token");
-  res.redirect("http://localhost:5173");
+  res.redirect("https://whitecarrotassignment-frontend.onrender.com");
 });
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
