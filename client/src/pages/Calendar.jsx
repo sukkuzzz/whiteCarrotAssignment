@@ -11,6 +11,7 @@ const Calendar = () => {
     window.location.href = "https://whitecarrotassignment.onrender.com/auth";
   };
   console.log("I was here ");
+
   useEffect(() => {
     axios
       .get("https://whitecarrotassignment.onrender.com/events", { withCredentials: true })
