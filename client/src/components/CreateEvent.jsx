@@ -19,7 +19,7 @@ const CreateEvent = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/create-event",
+        "https://whitecarrotassignment-backend.onrender.com/create-event",
         eventData,
         {
           withCredentials: true,
