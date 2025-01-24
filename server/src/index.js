@@ -32,9 +32,6 @@ app.get("/auth", (req, res) => {
     access_type: "offline",
     scope: [
       "https://www.googleapis.com/auth/calendar",
-      "openid",
-      "email",
-      "profile",
     ],
   });
   res.redirect(url);
